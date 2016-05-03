@@ -1,14 +1,22 @@
-<!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
-    <title>Browser Javascript</title>
-    <script defer src="code.js"></script>
-  </head>
-  <body>
-    <h1>Sample Page</h1>
-    <p>
-      Open the console
-    </p>
-  </body>
+    <title>Javascript in details</title>
+    <link rel="stylesheet" href="node_modules/mocha/mocha.css" />
+</head>
+<body>
+    <div id="mocha"></div>
+
+    <script src="node_modules/mocha/mocha.js"></script>
+    <script src="node_modules/chai/chai.js"></script>
+
+    <script>mocha.setup('bdd')</script>
+
+    <script src="types-basics-spec.js"></script>
+
+    <script>
+        mocha.checkLeaks();
+        mocha.run();
+    </script>
+</body>
 </html>
