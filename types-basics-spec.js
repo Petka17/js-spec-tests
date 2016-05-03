@@ -44,7 +44,7 @@ describe ("Simple Types", function() {
       expect(typeof true).to.equal("boolean");
     });
 
-    it ("foo string equals to 'string' string", function() {
+    it ("\"foo\" string equals to 'string' string", function() {
       expect(typeof "foo").to.equal("string");
     });
 
