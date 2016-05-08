@@ -6,23 +6,23 @@ var v;
 describe ("Type convertion", function() {
   describe ("to boolean", function() {
     it ("for null is false", function() {
-      expect(!!null).to.equal(false);
+      expect(null).to.not.be.ok;
     });
 
     it ("for undefined is false", function() {
-      expect(!!undefined).to.equal(false);
+      expect(undefined).to.not.be.ok;
     });
 
     it ("for zero is false", function() {
-      expect(!!0).to.equal(false);
+      expect(0).to.not.be.ok;
     });
 
     it ("for empty string is false", function() {
-      expect(!!"").to.equal(false);
+      expect("").to.not.be.ok;
     });
 
     it ("for NaN is false", function() {
-      expect(!!NaN).to.equal(false);
+      expect(NaN).to.not.be.ok;
     });
 
     it ("everything else is true", function() {});
@@ -60,7 +60,7 @@ describe ("Type convertion", function() {
     });
 
     it ("for undefined is NaN", function() {
-      expect(isNaN(Number(undefined))).to.equal(true);
+      expect(Number(undefined)).to.be.NaN;
     });
 
     it ("for true is 1", function() {
@@ -73,7 +73,7 @@ describe ("Type convertion", function() {
 
     describe ("for string", function() {
       it ("NaN if after cleaning all space characters there are letters", function() {
-        expect(isNaN(+"  13w")).to.equal(true);
+        expect(+"  13w").to.be.NaN;
       });
 
       it ("number (all space characters are ignored", function() {
@@ -88,21 +88,21 @@ describe ("Type convertion", function() {
 
   describe ("special cases", function() {
     it ("null is not equal zero (for == operator null have special behavior, it doesn't equal to anything accept undefined)", function() {
-      expect(null == 0).to.equal(false);
+      expect(null == 0).to.be.false;
     });
 
     it ("null is not greater that zero (for > operator null converts to 0)", function() {
-      expect(null > 0).to.equal(false);
+      expect(null > 0).to.be.false;
     });
 
     it ("null is equal or greater than zero (for >= operator null converts to 0)", function() {
-      expect(null >= 0).to.equal(true);
+      expect(null >= 0).to.be.true;
     });
 
     it ("undefined will return false when compare to anything accept null", function(){});
 
     it ("string \"0\" converts to true ", function(){
-      expect(!!"0").to.equal(true);
+      expect("0").to.be.ok;
     });
   });
 });

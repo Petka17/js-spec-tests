@@ -81,36 +81,32 @@ describe ("Simple Operators", function() {
     });
 
     it ("couldn't apply to constant [5++ error]", function() {
-      v = "";
-
-      try {
-        eval("5++;");
-      } catch (e) {
-        v = e;
-      }
-      expect(v.toString()).to.equal("ReferenceError: Invalid left-hand side expression in postfix operation");
+      expect(function() {
+        eval("5++;")
+      }).to.throw(ReferenceError);
     });
   });
 
   describe ("logical operators", function() {
     it ("ordering string with number: if it is possible to convert string to number, then compare numbers", function() {
-      expect("13" > 2).to.equal(true);
+      expect("13" > 2).to.be.true;
     });
 
     it ("ordering string with number: if it isn't possible to convert string to number, then compare strings", function() {
-      expect("13z" > 2).to.equal(false);
+      expect("13z" > 2).to.be.false;
     });
 
     it ("comparison string with number: if it is possible to convert string to number, then compare numbers", function() {
-      expect("2" == 2).to.equal(true);
+      expect("2" == 2).to.be.true;
     });
 
     it ("strict comparison string with number always returns false", function() {
-      expect("2" === 2).to.equal(false);
+      // expect("2" === 2).to.equal(false);
+      expect("2" === 2).to.be.false;
     });
 
     it ("null is equal to undefined", function() {
-      expect(null == undefined).to.equal(true);
+      expect(null == undefined).to.be.true;
     });
   });
 });
