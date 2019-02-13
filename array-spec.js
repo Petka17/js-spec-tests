@@ -1,6 +1,6 @@
 'use strinct'
 
-var expect = chai.expect;
+var expect = require('chai').expect;
 
 describe ("Arrays", function() {
   it ("push method", function() {
@@ -112,5 +112,9 @@ describe ("Arrays", function() {
 
   it ("reduce method will return accumulative value", function() {
     expect([1, 2, 3].reduce(function(value, item) {return value + item}, 0)).to.equal(6);
+  });
+
+  it ("reduce method will return accumulative value", function() {
+      expect([1, 2, 3].reduce(function(value, item) {return value + item})).to.equal(6);
   });
 });
